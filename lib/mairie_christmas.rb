@@ -15,17 +15,35 @@ end
 def get_townhall_urls
 page = Nokogiri::HTML(URI.open("http://annuaire-des-mairies.com/val-d-oise.html"))
 
-links = page.css('.lientxt')
-arr_links = []
+links = page.css('.lientxt').map{|anchor| anchor["href"]}
+return links
+end 
 
-all_url = "http://annuaire-des-mairies.com"
-
-for i in links
-    i = i.to_s
-    page = Nokogiri::HTML(URI.open(all_url + i.to_s[i.index('/')..i.rindex('"') - 1]))
-
-puts page.css('p.big')
+def names_townhall
+ page = Nokogiri::HTML(URI.open("http://annuaire-des-mairies.com/val-d-oise.html"))
+    
+names = page.css('.lientxt').map{|anchor| anchor["text"]}
+puts names
+return names
 end
+
+# --------- Récupération des emails
+
+def get_emails(links)
+arr_links =[]
+    links.each do |url|
+    page = Nokogiri::HTML(URI.open("http://annuaire-des-mairies.com/#{url}"))
+    arr_links << page.xpath('/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]').text
+end
+puts arr_links
+return arr_links
 end
 
-get_townhall_urls
+# ------- perform
+def perform
+    links = get_townhall_urls
+    arr_links = get_emails(links)
+    names = names_townhall
+end
+
+perform
