@@ -42,18 +42,18 @@ STUDIO est une marketplace avec un fonctionnement semblable à celui de Airbnb.
 
 * Advice : appartient à un user (guest) et appartient à un local
 
-* City : à plusieurs locaux, appartient à un user
+* City : a plusieurs locaux, appartient à un user
 
 ### 3.2. Front
 
 **Composants nécessaires pour le front:**
 
-*HTML / CSS
-*Javascript
+* HTML / CSS
+* Javascript
 
 ### 3.3. Backend
 
-** Besoins pour le Backend:**
+**Besoins pour le Backend:**
 * Ruby
 * Rails
 * PostgreSQL
@@ -88,5 +88,6 @@ Pour le reste de l’équipe, j’attends que cette idée de projet suscite chez
 * Notation et avis
 
 ## 6. Notre mentor
-Qui est ton mentor ?
+
+Luca Montaigut 
 
